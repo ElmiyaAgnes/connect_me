@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = current_user.posts
   end
 
   def show
@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(permitted_params)
+    @post.users << current_user
     if @post.save
       redirect_to @post
     else
@@ -39,6 +40,19 @@ class PostsController < ApplicationController
     @post.destroy
 
     redirect_to posts_path
+  end
+
+  def share
+  end
+
+  def share_to_users
+    @post = Post.find(params[:post_id])
+    @post.users << User.find(params[:user_id])
+    if @post.save
+      redirect_to posts_path
+    else
+      render 'new'
+    end
   end
 
   private
