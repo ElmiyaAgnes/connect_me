@@ -1,0 +1,12 @@
+
+<%= form_with model: @post, url: post_share_to_users_path, local: true do |form| %>
+
+  <p>
+    <%= form.label :select_user%><br>
+    <%= form.select :user_id, User.all.map{|u| [u.email, u.id] }, multiple: true, size: 10 %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
