@@ -43,11 +43,14 @@ class PostsController < ApplicationController
   end
 
   def share
+    @users = User.where.not(id: current_user.id).map{|u| [u.email, u.id] }
   end
 
   def share_to_users
     @post = Post.find(params[:post_id])
-    @post.users << User.find(params[:user_id])
+    params[:user_id].delete_if(&:blank?).map{|x| params[:user_id].delete(x) if @post.user_ids.include?(x.to_i) }
+    @post.users << User.where(id: params[:user_id])
+
     if @post.save
       redirect_to posts_path
     else
