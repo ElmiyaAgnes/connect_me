@@ -1,7 +1,47 @@
-<%= link_to "Settings", edit_user_path(current_user) %>
-<%= link_to 'Home', root_path %>
+<div class="user-profile">
+  <div class="profile row">
+    <div class="col-md-4 avatar">
+      <div class="wrapper">
+        <img src="/assets/pp.jpg">
+      </div>
+    </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <div class="col-md-8 basic-info">
+      <div class="user-wrapper">
+        <h2 class="username"><%=@user.username%></h2>
+      </div>
+      <a class="edit-profile" href="<%=edit_user_path(current_user)%>">
+        <button>Edit Profile</button>
+      </a>
+    </div>
+
+    <div class="container">
+      <table class="table table-condensed user-show-table">
+        <tr>
+          <td>First Name</td>
+          <td><%=@user.first_name%></td>
+        </tr>
+        <tr>
+          <td>Last name</td>
+          <td><%=@user.last_name%></td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td><%=@user.username%></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><%=@user.email%></td>
+        </tr>
+        <tr>
+          <td>Bio</td>
+          <td><%=@user.bio%></td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td><%=@user.phone%></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
