@@ -1,23 +1,30 @@
-<h1>Listing Posts</h1>
-<h2><%= current_user.email%></h2>
-<%= link_to 'New Post', new_post_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
- 
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.text %></td>
-      <td><%= link_to 'Show', post_path(post) %></td>
-      <td><%= link_to 'Edit', edit_post_path(post)%></td>
-      <td><%= link_to 'Delete', post_path(post), method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-      <td><%= link_to 'Share to Users', post_share_path(post) %></td>
-    </tr>
-  <% end %>
-</table>
-<%= link_to 'Home', root_path %>
+<div class="nav">
+  <div class="container">
+    <div class="new-post">
+      <a href="<%=new_post_path%>"><i class="fa fa-plus"></i> Add New post</a>
+    </div>
+    <div class="posts">
+      <% @posts.each do |post| %>
+        <section class="post">
+          <div class="user">
+            <div class="avatar">
+              <img src="/assets/pp.jpg">
+            </div>
+            <div class="username">
+              <%= current_user.username %>
+            </div>
+          </div>
+          <div class="content">
+            <%= post.text %>
+          </div>
+          <div class="actions">
+            <a href="<%=post_path(post)%>" title="Show"><i class="fa fa-eye"></i></a>
+            <a href="<%=edit_post_path(post)%>" title="Edit"><i class="fa fa-edit"></i></a>
+            <a href="<%=post_path(post)%>" data-method="delete" data-confirm="Are you sure?" title="Delete"><i class="fa fa-trash"></i></a>
+            <a href="<%=post_share_path(post)%>" title="Share"><i class="fa fa-share"></i></a>
+          </div>
+        </section>
+      <% end %>
+    </div>
+  </div>
+</div>

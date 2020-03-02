@@ -49,10 +49,47 @@
     font-size: 15px;
     font-weight: 600;
   }
-  .website{
-    color: #003569;
+}
+
+.form-edit-user{
+  padding: 30px 100px 10px 50px;
+  .form-group, input{
+      font-size: 14px;
+      color: black;
+    }
+    input, textarea{
+      border: 1px solid #efefef;
+    }
+    .col-form-label{
+      text-align: right;
+      font-weight: 600;
+    }
+  .avatar{
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+  }
+  .username{
+    font-size: 20px;
+    line-height: 22px;
+    margin-bottom: 0;
+  }
+  .change-photo{
+    color: #3897f0;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 13px;
+  }
+  input[type='submit']{
+    color: white;
+  }
+}
+
+.user-show-table{
+  tr{
+    padding-left: 15px;
+    > td{
+      padding-right: 15px;
+      max-width: 500px;
+    }
   }
 }
