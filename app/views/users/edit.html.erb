@@ -1,0 +1,60 @@
+<div class="container">
+<%= link_to "Profile", current_user %>
+
+  <%= form_with model: @user, local: true, html: {class: "form-horizontal form-edit-user"} do |f| %>
+    <div class="form-group row">
+      <div class="col-sm-3 col-form-label">
+        <img class="avatar" src="/assets/pp.jpg">
+      </div>
+      <div class="col-sm-9">
+        <p class="username"><%=current_user.username %></p>
+        <a class="change-photo" href="">Change Profile Photo</a>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :first_name, class: 'col-sm-3 col-form-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :first_name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :last_name, class: 'col-sm-3 col-form-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :last_name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :username, class: 'col-sm-3 col-form-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :username, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :bio, class: 'col-sm-3 col-form-label' %>
+      <div class="col-sm-9">
+        <%= f.text_area :bio, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :email, class: 'col-sm-3 col-form-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :phone, class: 'col-sm-3 col-form-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :phone, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-3">
+        <%= f.submit "Submit", class: 'btn btn-primary' %>
+      </div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+  <% end %>
+</div>
